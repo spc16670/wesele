@@ -1,0 +1,24 @@
+{application, whale, [
+  {description, ""}
+  ,{vsn, "1.0"}
+  ,{registered, [whale_app]}
+  ,{applications, [
+    kernel
+    ,stdlib
+  ]}
+  ,{mod, { whale_app, []}}
+  ,{modules,[
+    whale
+    ,whale_db
+    ,whale_rest
+    ,whale_app
+    ,whale_sup
+    ,whale_utls
+    ,whale_session_sup
+    ,whale_session_worker
+    ,whale_log
+    ,whale_bullet_handler
+    ,bullet_handler
+  ]}
+  ,{env, []}
+ ]}.

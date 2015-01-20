@@ -1,0 +1,1 @@
+erl -pa ./ebin/ ./deps/*/ebin -eval "application:start(whale)" -config whale -$1
