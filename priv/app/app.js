@@ -5,8 +5,10 @@ var whaleApp = angular.module('WhaleApp', [
   ,'ui.router'
   ,'xeditable'
   ,'cgBusy'
+  ,'pascalprecht.translate'
   ,'whale.Factories'
   ,'whale.Factories.Guests'
+  ,'whale.Controllers.Top'
   ,'whale.Controllers.Shell'
   ,'whale.Controllers.Main'
   ,'whale.Controllers.Login'
@@ -100,6 +102,31 @@ whaleApp.config(function($stateProvider,$urlRouterProvider) {
   })
 
 });
+
+
+/*
+ * Set up transaltions.
+ */
+whaleApp.config(['$translateProvider', function ($translateProvider) {
+  $translateProvider.translations('en', {
+    'TITLE': 'Hello',
+    'FOO': 'This is a paragraph'
+  });
+ 
+  $translateProvider.translations('pl', {
+    'TITLE': 'Czesc',
+    'FOO': 'To jest paragraph'
+  });
+
+  $translateProvider.translations('de', {
+    'TITLE': 'Hallo',
+    'FOO': 'Dies ist ein Paragraph'
+  });
+ 
+  $translateProvider.preferredLanguage('en');
+}]);
+
+
 
 whaleApp.run(['$rootScope', '$state', 'FactoryAuth', function ($rootScope, $state, FactoryAuth) {
   $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {

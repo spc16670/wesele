@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="whale website">
   <meta name="author" content="whale">
-  <title>Lamazone</title>
+  <title>Wesele Ani i Szymka</title>
   <link rel="shortcut icon" href="/static/images/favicon.ico">
   <link rel="stylesheet" href="/static/css/bootstrap/bootstrap-3.1.1.min.css">
   <link rel="stylesheet" href="/static/css/animate/animate-3.1.1.css">
@@ -26,28 +26,24 @@
   <script src="/static/js/angular-busy/angular-busy-4.0.0.min.js"></script>
   <script src="/static/js/angular-xeditable/xeditable-0.1.8.min.js"></script>
   <script src="/static/js/angular-ui-router/angular-ui-router-0.2.11.js"></script>
-<!--  <script src="/static/js/whale/admin/categories/whale.admin.categories.Controllers.js"></script>
-  <script src="/static/js/whale/admin/categories/whale.admin.categories.Factories.js"></script>
-  <script src="/static/js/whale/admin/items/whale.admin.items.Controllers.js"></script>
-  <script src="/static/js/whale/admin/items/whale.admin.items.Factories.js"></script>
-  <script src="/static/js/whale/admin/whale.admin.Controllers.js"></script>
-  <script src="/static/js/whale/whale.Directives.js"></script>
-  <script src="/static/js/whale/whale.Controllers.js"></script>
--->
+  <script src="/static/js/angular-translate/angular-translate-2.5.2.js"></script>
   
   <script src="/app/services/Factory.js"></script>
   <script src="/app/services/FactoryGuests.js"></script>
-  <script src="/app/partials/ControllerShell.js"></script>
   <script src="/app/templates/ControllerMain.js"></script>
+  <script src="/app/templates/ControllerShell.js"></script>
+  <script src="/app/templates/ControllerTop.js"></script>
   <script src="/app/partials/ControllerLogin.js"></script>
   <script src="/app/app.js"></script>
   <!-- <script src="/static/js/angular-ui-0.11.0/ui-bootstrap.min.js"></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js"></script>
+  <script src="/app/js/maps.js"></script>
 </head>
 <body ng-controller="ControllerShell">
     
     <!-- Top Panel -->
     <div id="topPanel" cg-busy="busyMain">
-      {% include "topPanel.tpl" %}
+      {% include "top.tpl" %}
     </div>
     
     <!-- Main Container -->  

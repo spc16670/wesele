@@ -1,7 +1,18 @@
-html {
+body {
   background: url(/app/images/my.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.transparent {
+  background-color: transparent;
+  color: inherit;
+}
+
+
+.alpha {
+  background-color: rgba(255,255,255, 0.5);
+  color: inherit;
 }
