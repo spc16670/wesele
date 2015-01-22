@@ -8,6 +8,7 @@ var whaleApp = angular.module('WhaleApp', [
   ,'pascalprecht.translate'
   ,'whale.Factories'
   ,'whale.Factories.Guests'
+  ,'whale.Factories.Wesele'
   ,'whale.Controllers.Top'
   ,'whale.Controllers.Shell'
   ,'whale.Controllers.Main'
@@ -44,18 +45,6 @@ whaleApp.config(function($stateProvider,$urlRouterProvider) {
     }
   })
 
-  .state('shell.register', {
-    url: '/register'
-    ,templateProvider: function (FactoryPartials,$stateParams) {
-      console.log('register activated: ',$stateParams.id);
-      FactoryPartials.fetch('register');
-      return FactoryPartials.promise.then(function(response) {
-        return response.data.partial;
-      }); 
-    }
-
-  })
-
   .state('shell.login', {
     url: '/login'
     ,controller: 'ControllerLogin'
@@ -86,19 +75,14 @@ whaleApp.config(function($stateProvider,$urlRouterProvider) {
 
   .state('shell.main', {
     url : '/'
-//    ,controller: 'ControllerShop'
-//    ,templateProvider: function (FactoryPartials,$stateParams) {
-//      console.log('shop activated: ',$stateParams.id);
-//      FactoryPartials.fetch('shop');
-//      return FactoryPartials.promise.then(function(response) {
-//        return response.data.partial;
-//      }); 
-//    }
-  })
-
-
-  .state('shell.main.offers', { 
-    url : '/offers'
+    ,controller: 'ControllerMain'
+    ,templateProvider: function (FactoryPartials,$stateParams) {
+      console.log('welcome activated: ',$stateParams.id);
+      FactoryPartials.fetch('welcome');
+      return FactoryPartials.promise.then(function(response) {
+        return response.data.partial;
+      }); 
+    }
   })
 
 });

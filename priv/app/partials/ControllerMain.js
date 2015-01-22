@@ -3,11 +3,13 @@ var whaleControllers = angular.module('whale.Controllers.Main', []);
 
 //----------------------------- ControllerLanding -----------------------------
 
-whaleControllers.controller('ControllerMain', ['$scope','$state','FactoryGuests'
-  ,function($scope,$state,FactoryGuests) { 
+whaleControllers.controller('ControllerMain', ['$scope','$state','FactoryGuests','loadMaps'
+  ,function($scope,$state,FactoryGuests,loadMaps) { 
+
+  google.maps.event.addDomListener(window, 'resize', loadMaps.initialize());
+  google.maps.event.addDomListener(window, 'load', loadMaps.initialize())
 
   $scope.guest = { main: "", partner: "", email: "", accomodation: false, comments: "" }; 
-
 
   $scope.guests = [];
   // Mutate the toggler object in accordance to user role 

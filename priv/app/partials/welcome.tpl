@@ -1,13 +1,8 @@
 
-  <div ng-controller="ControllerMain">
-
-    <!-- ROOT VIEW -->
-    <div ui-view></div> 
-
 
     <div class="jumbotron alpha">
       <div class="container">
-        <h1>{[ 'TITLE' | translate  ]}</h1>
+        <h3>{[ 'TITLE' | translate  ]}</h3>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
       </div>
     </div>
@@ -15,11 +10,6 @@
     <div class="container">
       <!-- Example row of columns -->
       <div id="LetUsKnowRow" class="row">
-        <div class="col-md-6 alpha">
-          <h2>Let us know you are coming!</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-        </div>
         <div class="col-md-6">
 
 	  <form novalidate class="form-horizontal" role="form">
@@ -64,38 +54,65 @@
 	  </form>
 
        </div>
+
+        <div class="col-md-6 alpha">
+          <h2>Let us know you are coming!</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+
       </div> <!-- LetUsKNowRow -->
 
 
-      <hr>
 
 
-      <div id="ChurchInfoRow" class="row">
+      <div id="ChurchInfoRow" class="row top-buffer">
+        <div class="col-md-6">
+	  <form class="form-horizontal" role="form">
+	    <div  style="height:300px;" id="church-map-div"></div>
+          <form>
+        </div>
         <div class="col-md-6 alpha">
           <h2>The Church</h2>
           <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
-        <div class="col-md-3">
-          <img src="/app/images/kosciol.jpg" alt="Kosciol NMP we Frysztaku" style="height:300px">
+      </div> <!-- ChurchInfoRow -->
+
+
+
+
+      <div id="ReceptionInfoRow" class="row top-buffer">
+        <div class="col-md-6">
+	  <form class="form-horizontal" role="form">
+	    <div  style="height:300px;" id="reception-map-div"></div>
+          <form>
+        </div>
+        <div class="col-md-6 alpha">
+          <h2>The Reception</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div>
 
-        <div class="col-md-3">
-	  <form class="form-horizontal" role="form">
-	    <div  style="height:300px;" id="church-map-div"></div>
-          <form>
-       </div>
+      </div> <!-- ReceptionInfoRow -->
 
-      </div> <!-- LetUsKNowRow -->
 
+
+
+      <div id="ContactInfoRow" name="contact" class="row top-buffer">
+        <div class="col-md-12 alpha">
+          <h2>Contact</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+
+      </div> <!-- ContactInfoRow -->
 
 
       <!-- FOOTER -->  
-      <hr>
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Ionas Software Ltd 2014</p>
       </footer>
     </div> <!-- /container -->
 
 
-  </div>

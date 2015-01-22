@@ -1,7 +1,8 @@
 
+
   <div class="navbar navbar-default" role="navigation">
     <!-- LOGIN -->
-    <div class="row whale-top-margin">
+    <div class="row top-buffer">
       <div class="col-md-2">
       </div>
       <div class="col-md-8">

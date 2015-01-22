@@ -30,27 +30,27 @@
   
   <script src="/app/services/Factory.js"></script>
   <script src="/app/services/FactoryGuests.js"></script>
-  <script src="/app/templates/ControllerMain.js"></script>
+  <script src="/app/services/FactoryWesele.js"></script>
+  <script src="/app/partials/ControllerMain.js"></script>
   <script src="/app/templates/ControllerShell.js"></script>
   <script src="/app/templates/ControllerTop.js"></script>
   <script src="/app/partials/ControllerLogin.js"></script>
   <script src="/app/app.js"></script>
   <!-- <script src="/static/js/angular-ui-0.11.0/ui-bootstrap.min.js"></script> -->
   <script src="https://maps.googleapis.com/maps/api/js"></script>
-  <script src="/app/js/maps.js"></script>
 </head>
 <body ng-controller="ControllerShell">
     
     <!-- Top Panel -->
-    <div id="topPanel" cg-busy="busyMain">
+    <div id="topPanel">
       {% include "top.tpl" %}
     </div>
     
+    <div ui-view></div> 
     <!-- Main Container -->  
-    <div id="main">
-      <div ui-view></div> 
-
-      {% include "main.tpl" %}
+    <div ui-view="shell.main">
+    </div>
+     <div ui-view="shell.login">
     </div>
   
   <div style="color:sienna">{{ sid }}</div>
