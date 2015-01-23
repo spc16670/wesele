@@ -33,7 +33,40 @@ init_mnesia_config() ->
   end,[],BasicConfig).  
 
 init_pgsql() ->
-  %estore_pgsql:drop_schema(whale),
+  estore_pgsql:drop_schema(wesele),
   estore:init(pgsql),
+  insert_test_user(),
+  insert_test_guest(),
   ok.
 
+insert_test_user() ->
+  try
+    estore_pgsql:transaction(),
+    User = estore:new(pgsql,user),
+    UserRecord = User#'user'{'email'="asdf@asdf.asdf",'password'="asdfqwer",'access'=4},
+    {ok,UserId} = estore:save(pgsql,UserRecord),
+    estore_pgsql:commit()
+  catch Error:Reason ->
+    io:fwrite("Rolling back ~p ~p ~n",[Error,Reason]),
+    eshop_logging:log_term(debug,[Error]),
+    estore_pgsql:rollback()
+  end.
+
+insert_test_guest() ->
+  try
+    estore_pgsql:transaction(),
+    Guest = estore:new(pgsql,guest),
+    GuestRecord = Guest#'guest'{
+      'invitee'="Szymon Czaja"
+      ,'invitee_partner' = "Anna Zulauf"
+      ,'invitee_email' = "asdf@asdf.asdf"
+      ,'needs_acomodation' = 1
+      ,'comments' = "No Comments"
+    },
+    {ok,_GuestId} = estore:save(pgsql,GuestRecord),
+    estore_pgsql:commit()
+  catch Error:Reason ->
+    io:fwrite("Rolling back ~p ~p ~n",[Error,Reason]),
+    eshop_logging:log_term(debug,[Error]),
+    estore_pgsql:rollback()
+  end.

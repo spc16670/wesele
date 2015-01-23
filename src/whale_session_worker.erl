@@ -80,14 +80,23 @@ dispatch_request({<<"partials">>,Data,CbId},Sid) ->
 dispatch_request({<<"login">>,Data,CbId},Sid) ->
   whale:authenticate({Sid,CbId},Data);
 
+dispatch_request({Op,Data,CbId},Sid) when Op =:= <<"guests">> ->
+  Action = whale_utls:get_value(<<"action">>,Data,undefined),
+  Token = whale_utls:get_value(<<"token">>,Data,undefined),
+  dispatch_request_action({Op,Action,Token,Data,CbId},Sid);
+
 dispatch_request({Type,Data,_CbId},_Sid) -> 
   io:fwrite("UNHANDLED::: ~p ~p ~n",[Type,Data]).
 
 %% ----------------------------------------------------------------------------
 
-dispatch_request_action({<<"items">>,<<"fetch">>,Token,Data,CbId},Sid) ->
+dispatch_request_action({<<"guests">>,<<"fetch">>,Token,Data,CbId},Sid) ->
   Auth = whale_session:is_authorised(Token),
-  dispatch_authorised_request({<<"items">>,<<"fetch">>,Data,CbId},Sid,Auth);
+  dispatch_authorised_request({<<"guests">>,<<"fetch">>,Data,CbId},Sid,Auth);
+
+dispatch_request_action({<<"guests">>,<<"add">>,Token,Data,CbId},Sid) ->
+  Method = binary_to_atom(<<"guests">>,'utf8'),
+  whale:Method({Sid,CbId},<<"add">>,Data,Token);
 
 dispatch_request_action({Op,Action,Token,Data,CbId},Sid) -> 
   Auth = whale_session:is_authorised(Token),

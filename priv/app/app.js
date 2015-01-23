@@ -9,10 +9,10 @@ var whaleApp = angular.module('WhaleApp', [
   ,'whale.Factories'
   ,'whale.Factories.Guests'
   ,'whale.Factories.Wesele'
-  ,'whale.Controllers.Top'
   ,'whale.Controllers.Shell'
   ,'whale.Controllers.Main'
   ,'whale.Controllers.Login'
+  ,'whale.Controllers.Guests'
 ]);
 
 whaleApp.config(function($interpolateProvider){
@@ -45,45 +45,30 @@ whaleApp.config(function($stateProvider,$urlRouterProvider) {
     }
   })
 
-  .state('shell.login', {
-    url: '/login'
-    ,controller: 'ControllerLogin'
-    ,templateProvider: function (FactoryPartials,$stateParams) {
-      console.log('login activated: ',$stateParams.id);
-      FactoryPartials.fetch('login');
-      return FactoryPartials.promise.then(function(response) {
-        return response.data.partial;
-      }); 
-    }
-  })
- 
-  .state('shell.admin', {
-    url : '/admin'
-    ,data : { access: 5 }
-//    ,views : { 
-//      "main" : {       
-	,templateProvider: function (FactoryPartials,$stateParams) {
-          console.log('admin activated: ',$stateParams.id);
-          FactoryPartials.fetch('admin');
-          return FactoryPartials.promise.then(function(response) {
-            return response.data.partial;
-          });    
-//        }
-//      }
-    }
-  })
-
   .state('shell.main', {
     url : '/'
     ,controller: 'ControllerMain'
     ,templateProvider: function (FactoryPartials,$stateParams) {
       console.log('welcome activated: ',$stateParams.id);
-      FactoryPartials.fetch('welcome');
+      FactoryPartials.fetch('main');
       return FactoryPartials.promise.then(function(response) {
         return response.data.partial;
       }); 
     }
   })
+
+  .state('shell.guests', {
+    url : '/guests'
+    ,data : { access: 3 }
+      ,templateProvider: function (FactoryPartials,$stateParams) {
+      console.log('admin activated: ',$stateParams.id);
+      FactoryPartials.fetch('guests');
+      return FactoryPartials.promise.then(function(response) {
+        return response.data.partial;
+      });    
+    }
+  })
+
 
 });
 

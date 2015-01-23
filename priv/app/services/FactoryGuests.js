@@ -12,22 +12,22 @@ whaleFactories.factory('FactoryGuests', ['FactoryRequest','FactoryBullet',
     ,promise : null
   };
 
-  Service.fetchCategories = function() {
+  Service.fetchGuests = function() {
     Service.state = 1;
-    var fetchReq = { 'type': "category", 'action' : "fetch" };
-    var request = FactoryRequest.makeRequest("categories",fetchReq,true);
+    var fetchReq = { 'type': "guest", 'action' : "fetch" };
+    var request = FactoryRequest.makeRequest("guests",fetchReq,true);
     var promise = FactoryBullet.send(request);
     Service.promise = promise;
     promise.then(function(response) {
-      if (response.operation === "categories") {
+      if (response.operation === "guests") {
 	if (response.data.result == "ok") {
 	  Service.message = response.data.msg;
-	  Service.categories = response.data.data;
+	  Service.guests = response.data.data;
           Service.state = 2;
 	} else if(response.data.result == "error") {
 	  Service.message = response.data.msg;
           console.log('service msg: ',Service.message);
-          Service.categories = [];
+          Service.guests = [];
           Service.state = 4;
 	} else {
 	  Service.message = response.data.msg;
@@ -36,86 +36,31 @@ whaleFactories.factory('FactoryGuests', ['FactoryRequest','FactoryBullet',
         };
       } else {
         Service.message = "Invalid response";
-	Service.categories = [];
+	Service.guests = [];
         console.log('Invalid response: ',response);
         Service.state = 6;
       }
     });
   };
 
-  Service.removeCategory = function(index) {
-    Service.state = 11;
-    var removeCat = Service.categories[index].data; 
-    var deleteReq = { 'type': "category", 'action' : "delete", 'data' : removeCat };
-    var request = FactoryRequest.makeRequest("categories",deleteReq,true); 
-    var promise = FactoryBullet.send(request);
-    console.log("Deleting Category: ",removeCat);
-    Service.promise = promise;
-    promise.then(function(response) {
-      if (response.operation === "categories") {
-        if (response.data.result == "ok") {
-          Service.fetchCategories();
-          console.log('Category Modified ',response.data.msg);
-        } else {
-          console.log('Could not delete',response);
-          Service.message = response.data.msg;
-          Service.categories = [];
-          Service.state = 12;
-        }
-      } else {
-        console.log('Invalid response: ',response);
-        Service.state = 13;
-      }
-    });
-  };
-
-  Service.updateCategory = function(data,id) {
-    Service.state = 21;
-    angular.extend(data, {id: id});
-    var upsertReq = { 'type': "category", 'action' : "upsert", 'data' : data };
-    var request = FactoryRequest.makeRequest("categories",upsertReq,true); 
-    var promise = FactoryBullet.send(request);
-    // This is needed to display the loading dialog
-    Service.promise = promise;
-    promise.then(function(response) {
-      if (response.operation === "categories") {
-        if (response.data.result == "ok") {
-          Service.fetchCategories();
-          console.log('Category Modified ',response.data);
-        } else {
-          console.log('Could not modify ',response.data);
-          Service.message = response.data.msg;
-	  Service.categories = [];
-          Service.state = 22;
-        }
-      } else {
-        console.log('Invalid response: ',response);
-        Service.state = 23;
-      }
-    });
-  };
-
-  Service.addCategory = function(newCat) {
-    Service.state = 31;
-    var addReq = { 'type': "category", 'action' : "add", 'data' : newCat };
-    var request = FactoryRequest.makeRequest("categories",addReq,true); 
+  Service.addGuest = function(newGuest) {
+    var addReq = { 'type': "guest", 'action' : "add", 'data' : newGuest };
+    var request = FactoryRequest.makeRequest("guests",addReq,true); 
     var promise = FactoryBullet.send(request);
     console.log("Submitting new Category: ",addReq);
     Service.promise = promise;
     promise.then(function(response) {
-      if (response.operation === "categories") {
+      if (response.operation === "guests") {
         if (response.data.result == "ok") {
-          console.log('New Category added ',response.data);
-          Service.fetchCategories();
+          console.log('New Guest added ',response.data);
+          Service.fetchGuests();
         } else {
-          console.log('Could not add new category ',response.data);
+          console.log('Could not add new guest ',response.data);
           Service.message = response.data.msg;
-	  Service.categories = [];
-          Service.state = 32;
+	  Service.guests = [];
         }
       } else {
         console.log('Invalid response: ',response);
-        Service.state = 33;
       }
     }); 
   };

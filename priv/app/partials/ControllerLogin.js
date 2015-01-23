@@ -20,7 +20,7 @@ whaleControllers.controller('ControllerLogin', ['$scope',
       handleError($scope.user.msg);
     } else {
       if ($scope.user.isLogged) {
-        $state.go('shell.shop');
+        $state.go('shell.main');
       }
     }
   },true);

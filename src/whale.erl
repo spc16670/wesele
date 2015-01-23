@@ -3,6 +3,7 @@
 -export([
   partials/2
   ,authenticate/2
+  ,guests/4
 ]).
 
 -export([
@@ -33,6 +34,38 @@ partials({Sid,CbId},Data) ->
 
 %% ----------------------------------------------------------------------------
 
+guests({Sid,CbId},<<"upsert">>,Record,_TokenData) ->
+  guests({Sid,CbId},<<"add">>,Record,_TokenData);
+guests({Sid,CbId},<<"add">>,Record,_TokenData) ->
+  {Result,Msg} = case estore:save(pgsql,Record) of
+    {ok,_Id} -> {<<"ok">>,<<"Saved">>};
+    {error,_Error} -> {<<"error">>,<<"Could not save">>}
+  end,
+  Json = json_reply(
+    {CbId,<<"guests">>}
+    ,{<<"add">>,Result}
+    ,[{<<"msg">>,Msg}]), 
+  reply(Sid,Json);
+
+guests({Sid,CbId},<<"fetch">>,_Record,_TokenData) ->
+   {Result,Msg,Count,GuestsKV} = case estore:find(pgsql,guest,[],[],all,0) of
+    [] -> 
+      {<<"error">>,<<"No Categories">>,<<"0">>,[]};
+    Guest when is_tuple(Guest) -> 
+      {<<"ok">>,<<"ok">>,<<"1">>,[estore_json:record_to_kv(Guest)]};
+    Guests when is_list(Guests) -> 
+      {<<"ok">>,<<"multiple">>,whale_utls:integer_to_binary(length(Guests))
+        ,estore_json:record_to_kv(Guests)}
+  end,
+  Json = json_reply(
+    {CbId,<<"guests">>}
+    ,{<<"fetch">>,Result}
+    ,[{<<"msg">>,Msg},{<<"count">>,Count},{<<"data">>,GuestsKV}]
+  ), 
+  reply(Sid,Json). 
+
+%% ----------------------------------------------------------------------------
+
 authenticate({Sid,CbId},Data) ->
   Action = whale_utls:get_value(<<"action">>,Data,undefined),
   ReqUserRecord = estore:json_to_record(Data),
@@ -47,11 +80,8 @@ authenticate({Sid,CbId},Data) ->
       Password = UserRecord#'user'.'password',
       if ReqEmail =:= Email andalso ReqPassword =:= Password ->
         UserId = UserRecord#'user'.'id',
-        %% Retrieve shopper and user
-        [ShopperRecord] = estore:find(pgsql,shopper,[{'user_id','=',UserId}]),
         UserRecordNoPass = UserRecord#'user'{'password' = ""}, 
         AccessLevel = UserRecord#'user'.'access', 
-        ShopperKV = estore_json:record_to_kv(ShopperRecord),
         UserKV = estore_json:record_to_kv(UserRecordNoPass),   
         %% Store user id in JWT token 
         Payload = [{user_id,UserId},{'access',AccessLevel}],
@@ -61,8 +91,8 @@ authenticate({Sid,CbId},Data) ->
 	  {CbId,<<"login">>}
 	  ,{Action,<<"ok">>}
 	  ,[{<<"token">>,Token}
-            ,{<<"type">>,<<"multiple">>}
-            ,{<<"data">>,[ShopperKV,UserKV]}
+            ,{<<"type">>,<<"user">>}
+            ,{<<"data">>,[UserKV]}
           ]
         );
       true -> 

@@ -21,6 +21,7 @@ whaleControllers.controller('ControllerMain', ['$scope','$state','FactoryGuests'
   $scope.submit = function(guest) {
     console.log("submitted: ",guest);
     $scope.guest = angular.copy(guest);
+    FactoryGuests.addGuest($scope.guest);
   };
 }]);
 

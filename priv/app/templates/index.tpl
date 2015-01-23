@@ -33,7 +33,7 @@
   <script src="/app/services/FactoryWesele.js"></script>
   <script src="/app/partials/ControllerMain.js"></script>
   <script src="/app/templates/ControllerShell.js"></script>
-  <script src="/app/templates/ControllerTop.js"></script>
+  <script src="/app/partials/ControllerGuests.js"></script> 
   <script src="/app/partials/ControllerLogin.js"></script>
   <script src="/app/app.js"></script>
   <!-- <script src="/static/js/angular-ui-0.11.0/ui-bootstrap.min.js"></script> -->
@@ -48,11 +48,9 @@
     
     <div ui-view></div> 
     <!-- Main Container -->  
-    <div ui-view="shell.main">
-    </div>
-     <div ui-view="shell.login">
-    </div>
-  
+    <div ui-view="shell.main"></div>
+    <div ui-view="shell.guests"></div>
+
   <div style="color:sienna">{{ sid }}</div>
   <div id="session_id" style="display:none">{{ sid }}</div>
   <div id="hostname" style="display:none">{{ hostname }}</div>

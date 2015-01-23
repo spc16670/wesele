@@ -4,13 +4,56 @@ var whaleControllers = angular.module('whale.Controllers.Shell', []);
 //---------------------- ControllerLanding ------------------------
 
 whaleControllers.controller('ControllerShell', ['$scope',
-  'FactoryBullet','FactoryAuth','$state',
-  function($scope,FactoryBullet,FactoryAuth,$state) { 
+  'FactoryBullet','FactoryAuth','$state','anchorSmoothScroll','$location','$translate',
+  function($scope,FactoryBullet,FactoryAuth,$state,anchorSmoothScroll,$location,$translate) { 
 
   console.log('current STATE::::',$state.current); 
-
-  $scope.user = FactoryAuth.user;
   $scope.busyMain = FactoryBullet.promise;
+
+  // LANGUAGES
+  $scope.langs = [{ name: 'English', lang : 'en' },{ name: 'Polski', lang : 'pl' }];
+  $scope.selectedLang =  $scope.langs[0];
+  $scope.$watch(function() {return $scope.selectedLang},function() {
+    $translate.use($scope.selectedLang.lang);
+  })
+
+
+  // SCROLLING
+  $scope.scrollTo = function(id) {
+    $location.hash(id);
+    anchorSmoothScroll.scrollTo(id);
+  }
+
+
+  // TOGGLING HIDDEN FORMS
+  $scope.toggler = {
+    login : false
+    ,contact : false
+  };
+  $scope.visible = function(div) {
+    for (var key in $scope.toggler) {
+      if ($scope.toggler.hasOwnProperty(key)) {
+        if (key === div) {
+	  if (div === "contact") {
+            $scope.scrollTo('ContactInfoRow');
+          } 
+          $scope.toggler[key] = !$scope.toggler[key];
+          // invalidate other flags
+	  for (var key in $scope.toggler) {
+            if ($scope.toggler.hasOwnProperty(key)) {
+              if (key !== div) {
+                $scope.toggler[key] = false;
+              }
+            }
+          }
+        }
+      }
+    } 
+  }
+
+
+  // AUTHORISATION
+  $scope.user = FactoryAuth.user;
 
   $scope.$watch(function() {return FactoryBullet},function(){
     $scope.busyMain = FactoryBullet.promise;
@@ -25,4 +68,3 @@ whaleControllers.controller('ControllerShell', ['$scope',
   };
 
 }]);
-

@@ -1,6 +1,6 @@
 
   <!-- Fixed navbar -->
-  <div class="navbar navbar-default navbar-fixed-top" cg-busy="busyMain" ng-controller="ControllerTop" role="navigation">
+  <div class="navbar navbar-default navbar-fixed-top" cg-busy="busyMain" role="navigation">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,19 +20,21 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li ng-class="{ active: toggler.showLogin }" ng-if="!user.isLogged">
-            <a id="btn-signup" ui-sref="shell.login">Log In</a>
+          <li ng-class="{ active: toggler.login }" ng-if="!user.isLogged">
+            <a id="btn-signup" href ng-click="visible('login')">Log In</a>
           </li>
 
-          <li><a href ng-click="scrollTo('ContactInfoRow')">Contact</a></li>
+          <li ng-class="{ active: toggler.contact }">
+            <a href ng-click="visible('contact')">Contact</a>
+          </li>
           
           <li class="dropdown" ng-if="user.isLogged">
             <a ng-if="user.isLogged" href="#" class="dropdown-toggle" id="btn-account" data-toggle="dropdown">
-	      {[ user.shopper.fname ]}<b class="caret"></b>
+	      {[ user.email ]}<b class="caret"></b>
 	    </a>
             <ul class="dropdown-menu">
               <li ng-if="user.isLogged">
-		 <a id="btn-personal" href="#" ng-click="visible('showPersonal')">Personal Information</a>
+		 <a id="btn-personal" ui-sref="shell.guests">Guests</a>
               </li>
 	      <li class="divider"></li>
 	      <li ng-if="user.isLogged">
