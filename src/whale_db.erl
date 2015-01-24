@@ -57,10 +57,10 @@ insert_test_guest() ->
     estore_pgsql:transaction(),
     Guest = estore:new(pgsql,guest),
     GuestRecord = Guest#'guest'{
-      'invitee'="Szymon Czaja"
-      ,'invitee_partner' = "Anna Zulauf"
-      ,'invitee_email' = "asdf@asdf.asdf"
-      ,'needs_acomodation' = 1
+      'main'="Szymon Czaja"
+      ,'partner' = "Anna Zulauf"
+      ,'email' = "asdf@asdf.asdf"
+      ,'accomodation' = 1
       ,'comments' = "No Comments"
     },
     {ok,_GuestId} = estore:save(pgsql,GuestRecord),

@@ -17,17 +17,18 @@ body {
   color: inherit;
 }
 
-.header-font {
-  color: #111; 
-  font-size: 40px;
-  font-family: 'Tangerine', bold;
-}
-
 .top-buffer { 
   margin-top:40px; 
 }
 
+@font-face {
+    font-family: "Promocyjna";
+    src: url(/static/fonts/promocyjna.ttf) format("truetype");
+}
 
+.promocyjna { 
+    font-family: "Promocyjna", Verdana, Tahoma;
+}
 
 
 .form-signin {

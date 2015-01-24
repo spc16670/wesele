@@ -1,0 +1,31 @@
+{
+    "MSG_GUEST_ADDED" : "Thank you!"
+    ,"MSG_GUEST_NOT_ADDED" : "Sorry, we could not update our records. Try again or send us an email."
+
+    ,"WELCOME_HEADER": "She said YES!"
+    ,"WELCOME_INFO": "This is a paragraph"
+
+    ,"FORM_HEADER" : "Let us know you are coming"
+    ,"FORM_INFO" : "Please let us know if you will be coming."
+    ,"FORM_INPUT_NAME" : "Your Name:"
+    ,"FORM_INPUT_NAME_PLACEHOLDER" : "Enter name"
+    ,"FORM_INPUT_PARTNER" : "Partner's name: "
+    ,"FORM_INPUT_PARTNER_PLACEHOLDER" : "Enter partner's name"
+    ,"FORM_INPUT_EMAIL" : "Email: "
+    ,"FORM_INPUT_EMAIL_PLACEHOLDER" : "Enter email"
+    ,"FORM_INPUT_ACCOMODATION" : "Accomodation: "
+    ,"FORM_INPUT_COMMENTS" : "Comments: "
+    ,"FORM_INPUT_COMMENTS_PLACEHOLDER" : "Enter comments"
+    ,"FORM_SUBMIT" : "Submit"
+
+    ,"CHURCH_HEADER" : "The Church"
+    ,"CHURCH_INFO" : "The parish of"
+    ,"CHURCH_WEBSITE" : "Website"
+
+    ,"RECEPTION_HEADER" : "The Reception"
+    ,"RECEPTION_INFO" : "The Dwór Maria Antonina"
+    ,"RECEPTION_WEBSITE" : "Website"
+
+    ,"CONTACT_HEADER" : "Contact"
+    ,"CONTACT_INFO" : "We will get your email almost instantly and we will reply as soon as we can. Do not hesitate to give us a call if you feel like having a chat."
+}

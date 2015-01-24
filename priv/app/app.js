@@ -77,21 +77,10 @@ whaleApp.config(function($stateProvider,$urlRouterProvider) {
  * Set up transaltions.
  */
 whaleApp.config(['$translateProvider', function ($translateProvider) {
-  $translateProvider.translations('en', {
-    'TITLE': 'Hello',
-    'FOO': 'This is a paragraph'
+  $translateProvider.useStaticFilesLoader({
+    prefix: "/app/i18n/locale-"
+    ,suffix : ".json"
   });
- 
-  $translateProvider.translations('pl', {
-    'TITLE': 'Czesc',
-    'FOO': 'To jest paragraph'
-  });
-
-  $translateProvider.translations('de', {
-    'TITLE': 'Hallo',
-    'FOO': 'Dies ist ein Paragraph'
-  });
- 
   $translateProvider.preferredLanguage('en');
 }]);
 

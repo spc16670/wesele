@@ -1,0 +1,32 @@
+{
+    "MSG_GUEST_ADDED" : "Dziękujemy!"
+    ,"MSG_GUEST_NOT_ADDED" : "Przepraszamy, nie mogliśmy odnotować waszego wpisu. Proszę spróbowac jeszcze raz albo wysłać nam e-maila."
+
+    ,"WELCOME_HEADER": "Powiedziała TAK!"
+    ,"WELCOME_INFO": "To jest paragraph"
+
+    ,"FORM_HEADER" : "Daj nam znać czy przyjeżdzasz."
+    ,"FORM_INPUT_NAME" : "Imię i nazwisko:"
+    ,"FORM_INPUT_NAME_PLACEHOLDER" : "Imię i nazwisko"
+    ,"FORM_INPUT_PARTNER" : "Osoba towarzysząca: "
+    ,"FORM_INPUT_PARTNER_PLACEHOLDER" : "Imię i nazwisko osoby towarzyszącej"
+    ,"FORM_INPUT_EMAIL" : "Email: "
+    ,"FORM_INPUT_EMAIL_PLACEHOLDER" : "Adres email"
+    ,"FORM_INPUT_ACCOMODATION" : "Zakwaterowanie: "
+    ,"FORM_INPUT_COMMENTS" : "Dodatkowe informacje: "
+    ,"FORM_INPUT_COMMENTS_PLACEHOLDER" : "Dodatkowe informacje"
+    ,"FORM_INFO" : "Proszę daj nam znać czy przyjeżdzasz."
+    ,"FORM_SUBMIT" : "Wyślij"
+
+    ,"CHURCH_HEADER" : "Kościół"
+    ,"CHURCH_INFO" : "Parafia pod wezwaniem Narodzenia Najświętszej Marii Panny  "
+    ,"CHURCH_WEBSITE" : "Odwiedź stronę"
+
+    ,"RECEPTION_HEADER" : "Sala Weselna"
+    ,"RECEPTION_INFO" : "Dwór Maria Antonina"
+    ,"RECEPTION_WEBSITE" : "Odwiedź stronę"
+
+    ,"CONTACT_HEADER" : "Kontakt"
+    ,"CONTACT_INFO" : "Twój email dotrze do nas praktycznie od razu i odpiszemy na niego najszybciej jak będziemy mogli. Możesz również zadzwonić jeżeli masz ochote pogadać."
+
+}

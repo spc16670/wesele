@@ -29,19 +29,19 @@
     {type,{'bigserial',[]}}
     ,{constraints,[{'pk',[]},{null,false}]}
   ]
-  ,invitee = [
+  ,main = [
     {type,{'varchar',[{length,100}]}}
     ,{constraints,[{null,false}]}
   ]
-  ,invitee_partner = [
+  ,partner = [
     {type,{'varchar',[{length,100}]}}
     ,{constraints,[{null,true}]}
   ]
-  ,invitee_email = [
+  ,email = [
     {type,{'varchar',[{length,50}]}}
     ,{constraints,[{null,false}]}
   ]
-  ,needs_acomodation = [
+  ,accomodation = [
     {type,{'integer',[]}}
     ,{constraints,[{null,true}]}
   ]

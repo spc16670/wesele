@@ -37,7 +37,13 @@ partials({Sid,CbId},Data) ->
 guests({Sid,CbId},<<"upsert">>,Record,_TokenData) ->
   guests({Sid,CbId},<<"add">>,Record,_TokenData);
 guests({Sid,CbId},<<"add">>,Record,_TokenData) ->
-  {Result,Msg} = case estore:save(pgsql,Record) of
+  if Record#'guest'.'accomodation'  =:= true ->
+    Rec = Record#'guest'{'accomodation' = 1};
+  true ->
+    Rec = Record#'guest'{'accomodation' = 0}
+  end,
+  io:fwrite("SAVING: ~p~n",[Rec]),
+  {Result,Msg} = case estore:save(pgsql,Rec) of
     {ok,_Id} -> {<<"ok">>,<<"Saved">>};
     {error,_Error} -> {<<"error">>,<<"Could not save">>}
   end,

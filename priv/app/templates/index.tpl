@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-2" /> 
   <meta name="description" content="whale website">
   <meta name="author" content="whale">
   <title>Wesele Ani i Szymka</title>
@@ -27,6 +28,7 @@
   <script src="/static/js/angular-xeditable/xeditable-0.1.8.min.js"></script>
   <script src="/static/js/angular-ui-router/angular-ui-router-0.2.11.js"></script>
   <script src="/static/js/angular-translate/angular-translate-2.5.2.js"></script>
+  <script src="/static/js/angular-translate/angular-translate-loader-static-files-2.5.2.js"></script>
   
   <script src="/app/services/Factory.js"></script>
   <script src="/app/services/FactoryGuests.js"></script>
@@ -36,7 +38,7 @@
   <script src="/app/partials/ControllerGuests.js"></script> 
   <script src="/app/partials/ControllerLogin.js"></script>
   <script src="/app/app.js"></script>
-  <!-- <script src="/static/js/angular-ui-0.11.0/ui-bootstrap.min.js"></script> -->
+
   <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 <body ng-controller="ControllerShell">

@@ -1,7 +1,7 @@
 
 <!-- LOGIN -->
 <div class="container top-buffer" ng-if="$parent.toggler.login" ng-controller="ControllerLogin">
-<form class="form-signin" name="loginForm" role="form" ng-submit="submit()">
+<form class="form-signin top-buffer" name="loginForm" role="form" ng-submit="submit()">
   <input type="email" class="form-control" ng-model="login.email" placeholder="Email address" required autofocus>
   <input type="password" class="form-control" ng-model="login.password" placeholder="Password" required>
   <!--<label class="checkbox">
@@ -23,10 +23,10 @@
 
 
 <!-- CONTENT -->
-    <div class="jumbotron alpha">
+    <div class="jumbotron alpha" ng-if="!$parent.toggler.login">
       <div class="container">
-        <h3>{[ 'TITLE' | translate  ]}</h3>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <h1 class="promocyjna">{[ 'WELCOME_HEADER' | translate  ]}</h1>
+        <h2 class="promocyjna">{[ 'WELCOME_INFO' | translate  ]}</h2>
       </div>
     </div>
 
@@ -35,27 +35,27 @@
       <div id="LetUsKnowRow" class="row">
         <div class="col-md-6">
 
-	  <form novalidate class="form-horizontal" role="form">
+	  <fieldset novalidate name="form" ng-disabled="added == 1" class="form-horizontal" role="form">
 	    <div class="form-group">
-	      <label class="control-label col-sm-4">Your Name:</label>
+	      <label class="control-label col-sm-4">{[ 'FORM_INPUT_NAME' | translate  ]}</label>
 	      <div class="col-sm-8">          
-		<input class="form-control" type="text" ng-model="guest.main" id="main" required="" placeholder="Enter name">
+		<input class="form-control" type="text" ng-model="guest.main" id="main" required="" placeholder="{[ 'FORM_INPUT_NAME_PLACEHOLDER' | translate  ]}">
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label class="control-label col-sm-4">Partner's name:</label>
+	      <label class="control-label col-sm-4">{[ 'FORM_INPUT_PARTNER' | translate  ]}</label>
 	      <div class="col-sm-8">          
-		<input class="form-control" type="text" ng-model="guest.partner" id="partnername" placeholder="Enter partner's name">
+		<input class="form-control" type="text" ng-model="guest.partner" id="partnername" placeholder="{[ 'FORM_INPUT_PARTNER_PLACEHOLDER' | translate  ]}">
 	      </div>
 	    </div> 
 	    <div class="form-group">
-	      <label class="control-label col-sm-4" for="email">Email:</label>
+	      <label class="control-label col-sm-4" for="email">{[ 'FORM_INPUT_EMAIL' | translate  ]}</label>
 	      <div class="col-sm-8">
-		<input type="email" class="form-control" ng-model="guest.email" id="email" required="" placeholder="Enter email">
+		<input type="email" class="form-control" ng-model="guest.email" id="email" required="" placeholder="{[ 'FORM_INPUT_EMAIL_PLACEHOLDER' | translate  ]}">
 	      </div>
 	    </div>
 	    <div class="form-group">        
-	      <label class="control-label col-sm-4" for="email">Accomodation</label>
+	      <label class="control-label col-sm-4" for="email">{[ 'FORM_INPUT_ACCOMODATION' | translate  ]}</label>
 	      <div class="col-sm-8">
 		<div class="checkbox">
 		  <input type="checkbox" ng-model="guest.accomodation">
@@ -63,15 +63,15 @@
 	      </div>
 	    </div>
 	    <div class="form-group">        
-	      <label class="control-label col-sm-4" for="email">Comments</label>
+	      <label class="control-label col-sm-4" for="email">{[ 'FORM_INPUT_COMMENTS' | translate  ]}</label>
 	      <div class="col-sm-8">
-	        <textarea class="form-control" rows="3" ng-model="guest.comments" placeholder="Comments"></textarea>	
+	        <textarea class="form-control" rows="3" ng-model="guest.comments" placeholder="{[ 'FORM_INPUT_COMMENTS_PLACEHOLDER' | translate  ]}"></textarea>	
 	      </div>
 	    </div>
 
 	    <div class="form-group">        
 	      <div class="col-sm-offset-4 col-sm-8">
-		<button type="submit" ng-click="submit(guest)" class="btn btn-default">Submit</button>
+		<button type="submit" ng-click="submit(guest)" class="btn btn-default">{[ 'FORM_SUBMIT' | translate ]}</button>
 	      </div>
 	    </div>
 	  </form>
@@ -79,9 +79,10 @@
        </div>
 
         <div class="col-md-6 alpha">
-          <h2>Let us know you are coming!</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>{[ 'FORM_HEADER' | translate ]}</h2>
+          <div ng-if="added == 0"><p>{[ 'FORM_INFO' | translate ]}</p></div>
+          <div ng-if="added == 1"><h2 style="color:green"> {[ 'MSG_GUEST_ADDED' | translate ]}</h2></div>
+          <div ng-if="added == 2"><h2 style="color:red"> {[ 'MSG_GUEST_NOT_ADDED' | translate ]}</h2></div>
         </div>
 
       </div> <!-- LetUsKNowRow -->
@@ -96,9 +97,9 @@
           <form>
         </div>
         <div class="col-md-6 alpha">
-          <h2>The Church</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>{[ 'CHURCH_HEADER' | translate ]}</h2>
+          <p>{[ 'CHURCH_HEADER' | translate ]}</p>
+          <p><a class="btn btn-default" href="http://parafia.frysztak.pl" role="button">{[ 'CHURCH_WEBSITE' | translate ]} &raquo;</a></p>
         </div>
       </div> <!-- ChurchInfoRow -->
 
@@ -112,9 +113,9 @@
           <form>
         </div>
         <div class="col-md-6 alpha">
-          <h2>The Reception</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>{[ 'RECEPTION_HEADER' | translate ]}</h2>
+          <p>{[ 'RECEPTION_INFO' | translate ]}</p>
+          <p><a class="btn btn-default" href="http://dwormariaantonina.pl/" role="button">{[ 'RECEPTION_WEBSITE' | translate ]} &raquo;</a></p>
         </div>
 
       </div> <!-- ReceptionInfoRow -->
@@ -124,9 +125,24 @@
 
       <div id="ContactInfoRow" name="contact" class="row top-buffer">
         <div class="col-md-12 alpha">
-          <h2>Contact</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <h2>{[ 'CONTACT_HEADER' | translate ]}</h2>
+          <hr>
+          <div class="row">
+            <div class="col-md-4">
+              <p><strong><span class="glyphicon glyphicon-info-sign"></span> {[ 'CONTACT_INFO' | translate ]}</strong></p>
+            </div>
+
+            <div class="col-md-4">
+              <h4>Ania</h4>
+              <p><strong><span class="glyphicon glyphicon-envelope"></span> zulauf.anna@gmail.com</strong></p>
+              <p><strong><span class="glyphicon glyphicon-phone"></span> +44 7583 633 457</strong></p>
+            </div>
+            <div class="col-md-4">
+              <h4>Szymek</h4>
+              <p><strong><span class="glyphicon glyphicon-envelope"></span> szymonpiotrczaja@gmail.com</strong></p>
+              <p><strong><span class="glyphicon glyphicon-phone"></span> +44 7871 259 234</strong></p>
+            </div>
+          </div>
         </div>
 
       </div> <!-- ContactInfoRow -->
@@ -137,5 +153,4 @@
         <p>&copy; Ionas Software Ltd 2014</p>
       </footer>
     </div> <!-- /container -->
-
 

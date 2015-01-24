@@ -10,6 +10,7 @@ whaleFactories.factory('FactoryGuests', ['FactoryRequest','FactoryBullet',
     ,guests : []
     ,message : ""
     ,promise : null
+    ,result : ""
   };
 
   Service.fetchGuests = function() {
@@ -23,22 +24,21 @@ whaleFactories.factory('FactoryGuests', ['FactoryRequest','FactoryBullet',
 	if (response.data.result == "ok") {
 	  Service.message = response.data.msg;
 	  Service.guests = response.data.data;
-          Service.state = 2;
+          Service.result = "ok";
 	} else if(response.data.result == "error") {
 	  Service.message = response.data.msg;
           console.log('service msg: ',Service.message);
           Service.guests = [];
-          Service.state = 4;
+          Service.result = "error";
 	} else {
 	  Service.message = response.data.msg;
 	  Service.categories = [];
-          Service.state = 5;
+          Service.result = "error";
         };
       } else {
         Service.message = "Invalid response";
 	Service.guests = [];
         console.log('Invalid response: ',response);
-        Service.state = 6;
       }
     });
   };
@@ -47,17 +47,18 @@ whaleFactories.factory('FactoryGuests', ['FactoryRequest','FactoryBullet',
     var addReq = { 'type': "guest", 'action' : "add", 'data' : newGuest };
     var request = FactoryRequest.makeRequest("guests",addReq,true); 
     var promise = FactoryBullet.send(request);
-    console.log("Submitting new Category: ",addReq);
+    console.log("Submitting new Guest: ",addReq);
     Service.promise = promise;
     promise.then(function(response) {
       if (response.operation === "guests") {
         if (response.data.result == "ok") {
           console.log('New Guest added ',response.data);
-          Service.fetchGuests();
+          Service.message = response.data.msg;
+          Service.result = "ok";
         } else {
           console.log('Could not add new guest ',response.data);
           Service.message = response.data.msg;
-	  Service.guests = [];
+          Service.result = "error";
         }
       } else {
         console.log('Invalid response: ',response);

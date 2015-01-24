@@ -95,8 +95,9 @@ dispatch_request_action({<<"guests">>,<<"fetch">>,Token,Data,CbId},Sid) ->
   dispatch_authorised_request({<<"guests">>,<<"fetch">>,Data,CbId},Sid,Auth);
 
 dispatch_request_action({<<"guests">>,<<"add">>,Token,Data,CbId},Sid) ->
+  Record = estore:json_to_record(Data),
   Method = binary_to_atom(<<"guests">>,'utf8'),
-  whale:Method({Sid,CbId},<<"add">>,Data,Token);
+  whale:Method({Sid,CbId},<<"add">>,Record,Token);
 
 dispatch_request_action({Op,Action,Token,Data,CbId},Sid) -> 
   Auth = whale_session:is_authorised(Token),

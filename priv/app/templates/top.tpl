@@ -24,8 +24,8 @@
             <a id="btn-signup" href ng-click="visible('login')">Log In</a>
           </li>
 
-          <li ng-class="{ active: toggler.contact }">
-            <a href ng-click="visible('contact')">Contact</a>
+          <li ng-class="{ active: toggler.contact }" ng-if="!user.isLogged">
+            <a href ng-click="visible('contact')">{[ 'CONTACT_HEADER' | translate ]}</a>
           </li>
           
           <li class="dropdown" ng-if="user.isLogged">
