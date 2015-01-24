@@ -14,11 +14,9 @@
   <link rel="stylesheet" href="/app/css/wesele.css">
   <link rel="stylesheet" href="/static/css/angular-busy/angular-busy-4.0.0.min.css">
   <link rel="stylesheet" href="/static/css/angular-xeditable/xeditable-0.1.8.css">
-
   <link href='http://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
 
   <script src="/static/js/jquery/jquery-1.11.1.min.js"></script>
-  <!-- <script src="/static/js/bootstrap-3.1.1/bootstrap.min.js"></script> -->
   <script src="/static/js/bullet/bullet-0.4.1.js"></script>
   <script src="/static/js/angular/angular-1.2.9.min.js"></script>
   <script src="/static/js/angular/angular-route-1.2.9.js"></script>
@@ -36,24 +34,25 @@
   <script src="/app/partials/ControllerMain.js"></script>
   <script src="/app/templates/ControllerShell.js"></script>
   <script src="/app/partials/ControllerGuests.js"></script> 
-  <script src="/app/partials/ControllerLogin.js"></script>
+  <script src="/app/templates/ControllerLogin.js"></script>
   <script src="/app/app.js"></script>
 
   <script src="https://maps.googleapis.com/maps/api/js"></script>
 </head>
 <body ng-controller="ControllerShell">
     
-    <!-- Top Panel -->
-    <div id="topPanel">
-      {% include "top.tpl" %}
-    </div>
+  <!-- Top Panel -->
+  <div id="topPanel">{% include "top.tpl" %}</div>
     
-    <div ui-view></div> 
-    <!-- Main Container -->  
-    <div ui-view="shell.main"></div>
-    <div ui-view="shell.guests"></div>
+  <div ui-view></div> 
+  <!-- Main Container -->  
+  <div ui-view="shell.main"></div>
+  <div ui-view="shell.guests"></div>
 
-  <div style="color:sienna">{{ sid }}</div>
+  <!-- Footer -->  
+  <div id="bottom">{% include "footer.tpl" %}</div>
+  <!-- Hidden -->  
+  <div style="display:none">{{ sid }}</div>
   <div id="session_id" style="display:none">{{ sid }}</div>
   <div id="hostname" style="display:none">{{ hostname }}</div>
   <div id="http_port" style="display:none">{{ http_port }}</div>

@@ -51,10 +51,10 @@ handle_info(timeout, State) ->
   {noreply, State};
 
 handle_info(Req, #state{sid=Sid} = State)  ->
-  Sleep = whale_utls:gen_rand_int(1, 3000),
-  io:fwrite("Sleep ~p~n",[Sleep]),
+%  Sleep = whale_utls:gen_rand_int(1, 3000),
+%  io:fwrite("Sleep ~p~n",[Sleep]),
   io:fwrite("Request ~p~n",[Req]),
-  timer:sleep(Sleep),
+%  timer:sleep(Sleep),
   Parsed = jsx:decode(Req),
   Operation = whale_utls:get_value(<<"operation">>,Parsed,undefined),
   Data = whale_utls:get_value(<<"data">>,Parsed,undefined),
