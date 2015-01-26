@@ -81,7 +81,7 @@ whaleApp.config(['$translateProvider', function ($translateProvider) {
     prefix: "/app/i18n/locale-"
     ,suffix : ".json"
   });
-  $translateProvider.preferredLanguage('en');
+  $translateProvider.preferredLanguage('pl');
 }]);
 
 

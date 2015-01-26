@@ -3,9 +3,9 @@
     ,"MSG_GUEST_NOT_ADDED" : "Przepraszamy, nie mogliśmy odnotować waszego wpisu. Proszę spróbowac jeszcze raz albo wysłać nam e-maila."
 
     ,"WELCOME_HEADER": "Powiedziała TAK!"
-    ,"WELCOME_INFO": "To jest paragraph"
+    ,"WELCOME_INFO": "Rozpoczynając nowy etap w naszym życiu z radością oczekujemy Twojej obecności w ten szczególny dla nas dzień. Proszę użyj tej strony aby potwierdzić Twoją obecność. Pomoże nam to w przygotowaniu sali weselnej oraz zakwaterowania. Znajdziesz tutaj również niezbędne informacje dotyczące ceremonii zaślubin, wesela oraz dane kontaktowe."
 
-    ,"FORM_HEADER" : "Daj nam znać czy przyjeżdzasz."
+    ,"FORM_HEADER" : "Daj nam znać czy będziesz"
     ,"FORM_INPUT_NAME" : "Imię i nazwisko:"
     ,"FORM_INPUT_NAME_PLACEHOLDER" : "Imię i nazwisko"
     ,"FORM_INPUT_PARTNER" : "Osoba towarzysząca: "
@@ -15,18 +15,18 @@
     ,"FORM_INPUT_ACCOMODATION" : "Zakwaterowanie: "
     ,"FORM_INPUT_COMMENTS" : "Dodatkowe informacje: "
     ,"FORM_INPUT_COMMENTS_PLACEHOLDER" : "Dodatkowe informacje"
-    ,"FORM_INFO" : "Proszę daj nam znać czy przyjeżdzasz."
+    ,"FORM_INFO" : "Potrzebujemy twojego imienia i adresu email. Jeżeli planujesz przyjść z osobą towarzyszącą, prosimy abyś podał jej imię i nazwisko. Podobnie, jeżeli potrzebujesz zakwaterowania na noc weselną, proszę zaznacz to na formie. Użyj ostatniego pola na formie, aby przekazać nam wszelkie dodatkowe informacje, bądź uwagi."
     ,"FORM_SUBMIT" : "Wyślij"
 
     ,"CHURCH_HEADER" : "Kościół"
-    ,"CHURCH_INFO" : "Parafia pod wezwaniem Narodzenia Najświętszej Marii Panny  "
+    ,"CHURCH_INFO" : "Parafia pod wezwaniem Narodzenia Najświętszej Marii Panny znajduje się w miejscowości Frysztak na Podkarpaciu, przy drodze wojewódzkiej nr 988 między Jasłem i Rzeszowem. W głównym prezbiterium Frysztackiego koscioła znajduje się łaskami słynący wizerunek Pana Jezusa ukrzyżowanego. Jest to rodzinna parafia Szymka oraz przyszłego kapłana Piotra Staryszaka, który będzie odprawiał ceremonie ślubu."
     ,"CHURCH_WEBSITE" : "Odwiedź stronę"
 
     ,"RECEPTION_HEADER" : "Sala Weselna"
-    ,"RECEPTION_INFO" : "Dwór Maria Antonina"
+    ,"RECEPTION_INFO" : "Dwór Maria Antonia jest domem weselnym z restauracją i hotelem. Znajduje się w niedalekiej wiosce o nazwie Glinik Zaborowski, ok. 20 km od koscioła, na skraju Czarnorzecko-Strzyżowskiego Parku Krajobrazowego. Każdy pokój w hotelu wyposażony jest w łazienkę, klimatyzację i darmowe wi-fi. Dom weselny jest częścią kompleksu w skład którego wchodzą stadniny konne prowadzone i posiadane przez rodzinę Uchwatów mająca wieloletnią tradycję w hodowli koni. "
     ,"RECEPTION_WEBSITE" : "Odwiedź stronę"
 
     ,"CONTACT_HEADER" : "Kontakt"
-    ,"CONTACT_INFO" : "Twój email dotrze do nas praktycznie od razu i odpiszemy na niego najszybciej jak będziemy mogli. Możesz również zadzwonić jeżeli masz ochote pogadać."
+    ,"CONTACT_INFO" : "Postaramy odpowiedzieć na Twojego email najszybciej jak będziemy mogli. Możesz również zadzwonić jeżeli masz ochotę pogadać."
 
 }

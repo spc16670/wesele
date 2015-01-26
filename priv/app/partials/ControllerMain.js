@@ -30,8 +30,8 @@ whaleControllers.controller('ControllerMain', ['$scope','$state'
     FactoryGuests.addGuest($scope.guest);
   };
 
-  google.maps.event.addDomListener(window, 'resize', loadMaps.initialize());
   google.maps.event.addDomListener(window, 'load', loadMaps.initialize())
+  google.maps.event.addDomListener(window, 'resize', loadMaps.initialize());
 
 
 }]);

@@ -15,8 +15,10 @@
       <div class="navbar-collapse collapse">
  
        <!-- LANG -->
-        <ul class="navbar-form navbar-right">
-          <select class="form-control" ng-options="l.name for l in langs" ng-model="selectedLang"></select>
+        <ul class="nav navbar-form navbar-right">
+          <li> 
+            <select class="form-control" ng-options="l.name for l in langs" ng-model="selectedLang"></select>
+          </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -27,7 +29,8 @@
           <li ng-class="{ active: toggler.contact }" ng-if="!user.isLogged">
             <a href ng-click="visible('contact')">{[ 'CONTACT_HEADER' | translate ]}</a>
           </li>
-          
+ 
+         
           <li class="dropdown" ng-if="user.isLogged">
             <a ng-if="user.isLogged" href="#" class="dropdown-toggle" id="btn-account" data-toggle="dropdown">
 	      {[ user.email ]}<b class="caret"></b>
@@ -42,7 +45,10 @@
 	      </li>
             </ul>
           </li>
-
+          <li>
+            <a><img src="/app/i18n/{[ selectedLang.lang ]}.png"></a>
+          </li>
+ 
         </ul>
 
       </div><!--/.nav-collapse -->

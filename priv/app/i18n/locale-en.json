@@ -3,10 +3,10 @@
     ,"MSG_GUEST_NOT_ADDED" : "Sorry, we could not update our records. Try again or send us an email."
 
     ,"WELCOME_HEADER": "She said YES!"
-    ,"WELCOME_INFO": "This is a paragraph"
+    ,"WELCOME_INFO": " We are starting a new chapter in our lives! With great happiness we are looking forward to your presence during this special day. Please use this page to confirm your attendance. It will help us to arrange the reception venue and accomodation. Here you will also find essential information regarding the wedding ceremony and reception, as well as our contact details."
 
     ,"FORM_HEADER" : "Let us know you are coming"
-    ,"FORM_INFO" : "Please let us know if you will be coming."
+    ,"FORM_INFO" : "We need your name and email address. If you are planning on brigning someone with you, please give us their name as well. Similarly, if you require accomodation for the wedding night, please check the appropriate box on the form. Use the last field to let us know of any other information or concerns you may have.  "
     ,"FORM_INPUT_NAME" : "Your Name:"
     ,"FORM_INPUT_NAME_PLACEHOLDER" : "Enter name"
     ,"FORM_INPUT_PARTNER" : "Partner's name: "
@@ -19,11 +19,11 @@
     ,"FORM_SUBMIT" : "Submit"
 
     ,"CHURCH_HEADER" : "The Church"
-    ,"CHURCH_INFO" : "The parish of"
+    ,"CHURCH_INFO" : "The parish of The Birth of the Most Holy Virgin Mary (in Polish: Narodzenia Najswietszej Marii Panny) is located in Frysztak, in the Subcarpathian (Podkarpacie) voivodeship, between the towns of Jaslo and Rzeszow, on voivodeship rd 988. In the main presbytery of the church is located a figure of Jesus on the cross, which is known for many special graces. This is the home parish of Szymon, as well as the future priest Piotr Staryszak, who will be celebrating the wedding ceremony."
     ,"CHURCH_WEBSITE" : "Website"
 
     ,"RECEPTION_HEADER" : "The Reception"
-    ,"RECEPTION_INFO" : "The Dwór Maria Antonina"
+    ,"RECEPTION_INFO" : "The Dwór Maria Antonina is an event venue with a restaurant and hotel. It is located in a nearby village, Glinik Zaborowski, approximately 20km from the church, and on the edge of the Czarnorzecko-Strzyzowski Landscape Park. Each room in the hotel has a bathroom, AC and free wi-fi. The venue is part of an equestrian complex owned and operated by the Uchwat family, with a long standing tradition in horsemanship."
     ,"RECEPTION_WEBSITE" : "Website"
 
     ,"CONTACT_HEADER" : "Contact"

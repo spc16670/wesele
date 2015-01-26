@@ -11,7 +11,7 @@ whaleControllers.controller('ControllerShell', ['$scope',
   $scope.busyMain = FactoryBullet.promise;
 
   // LANGUAGES
-  $scope.langs = [{ name: 'English', lang : 'en' },{ name: 'Polski', lang : 'pl' }];
+  $scope.langs = [{ name: 'Polski', lang : 'pl' },{ name: 'English', lang : 'en' }];
   $scope.selectedLang =  $scope.langs[0];
   $scope.$watch(function() {return $scope.selectedLang},function() {
     $translate.use($scope.selectedLang.lang);

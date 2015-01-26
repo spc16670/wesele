@@ -30,8 +30,8 @@
 <!-- CONTENT -->
     <div class="jumbotron alpha" ng-if="!$parent.toggler.login">
       <div class="container">
-        <h1 class="promocyjna">{[ 'WELCOME_HEADER' | translate  ]}</h1>
-        <h2 class="promocyjna">{[ 'WELCOME_INFO' | translate  ]}</h2>
+        <h1 class="promocyjna"><strong>{[ 'WELCOME_HEADER' | translate  ]}</strong></h1>
+        <h2 class="promocyjna"><strong>{[ 'WELCOME_INFO' | translate  ]}</strong></h2>
       </div>
     </div>
 
@@ -84,8 +84,8 @@
        </div>
 
         <div class="col-md-6 alpha">
-          <h2>{[ 'FORM_HEADER' | translate ]}</h2>
-          <div ng-if="added == 0"><p>{[ 'FORM_INFO' | translate ]}</p></div>
+          <h2><i>{[ 'FORM_HEADER' | translate ]}</i></h2>
+          <div ng-if="added == 0"><h4><i>{[ 'FORM_INFO' | translate ]}</i></h4></div>
           <div ng-if="added == 1"><h2 style="color:green"> {[ 'MSG_GUEST_ADDED' | translate ]}</h2></div>
           <div ng-if="added == 2"><h2 style="color:red"> {[ 'MSG_GUEST_NOT_ADDED' | translate ]}</h2></div>
         </div>
@@ -102,8 +102,8 @@
           <form>
         </div>
         <div class="col-md-6 alpha">
-          <h2>{[ 'CHURCH_HEADER' | translate ]}</h2>
-          <p>{[ 'CHURCH_HEADER' | translate ]}</p>
+          <h2><i>{[ 'CHURCH_HEADER' | translate ]}</i></h2>
+          <h4><i>{[ 'CHURCH_INFO' | translate ]}</i></h4>
           <p><a class="btn btn-default" href="http://parafia.frysztak.pl" role="button">{[ 'CHURCH_WEBSITE' | translate ]} &raquo;</a></p>
         </div>
       </div> <!-- ChurchInfoRow -->
@@ -118,8 +118,8 @@
           <form>
         </div>
         <div class="col-md-6 alpha">
-          <h2>{[ 'RECEPTION_HEADER' | translate ]}</h2>
-          <p>{[ 'RECEPTION_INFO' | translate ]}</p>
+          <h2><i>{[ 'RECEPTION_HEADER' | translate ]}</i></h2>
+          <h4><i>{[ 'RECEPTION_INFO' | translate ]}</i></h4>
           <p><a class="btn btn-default" href="http://dwormariaantonina.pl/" role="button">{[ 'RECEPTION_WEBSITE' | translate ]} &raquo;</a></p>
         </div>
 
